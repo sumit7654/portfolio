@@ -1,0 +1,23 @@
+/* Global scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+#about,
+#projects,
+#contact {
+    scroll-margin-top: 80px;
+}
+
+/* Mobile header offset */
+@media (max-width: 768px) {
+
+    #about,
+    #projects,
+    #contact {
+        scroll-margin-top: 150px;
+        /* increase for mobile navbar height */
+    }
+}
