@@ -11,14 +11,15 @@ import {
 } from "react-icons/fa";
 
 const AdminDashboard = ({ darkMode }) => {
+  const BASE_URL = process.env.REACT_APP_API_URL;
   const [usercontact, setusercontact] = useState([]);
   const [datacount, setdatacount] = useState(0);
   const [projectcount, setprojectcount] = useState(0);
 
   const fetchuser = useCallback(async (req, res) => {
     try {
-      const contactres = await axios.get("/api/v1/contact");
-      const projectres = await axios.get("/api/v1/project");
+      const contactres = await axios.get(`${BASE_URL}/api/v1/contact`);
+      const projectres = await axios.get(`${BASE_URL}/api/v1/project`);
       fetchuser();
       if (contactres.data.success) {
         setusercontact(contactres.data.data);

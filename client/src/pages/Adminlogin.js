@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 // import "./Adminlogin.css";
 
 const Adminlogin = () => {
+  const BASE_URL = process.env.REACT_APP_API_URL;
   //usestate
   const navigate = useNavigate();
   const [email, setemail] = useState("");
@@ -19,7 +20,7 @@ const Adminlogin = () => {
       if (!email || !password) {
         return toast.warning("All field are required!");
       }
-      const { data } = await axios.post("/api/v1/admin-login", {
+      const { data } = await axios.post(`${BASE_URL}/api/v1/admin-login`, {
         email,
         password,
       });

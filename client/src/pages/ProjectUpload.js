@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const ProjectUpload = ({ darkMode }) => {
+  const BASE_URL = process.env.REACT_APP_API_URL;
   const [loading, setLoading] = useState(false);
 
   const [title, settitle] = useState("");
@@ -29,11 +30,15 @@ const ProjectUpload = ({ darkMode }) => {
       formData.append("link", link);
       formData.append("preview", preview); // This is the file
 
-      const { data } = await axios.post("/api/v1/project", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const { data } = await axios.post(
+        `${BASE_URL}/api/v1/project`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
       if (data.success) {
         toast.success("Project submitted successfully");
