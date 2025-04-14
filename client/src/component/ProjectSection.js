@@ -5,11 +5,13 @@ import axios from "axios";
 // import { HashLink } from "react-router-hash-link";
 
 const ProjectSection = () => {
+    const BASE_URL = process.env.REACT_APP_API_URL;
+
   const [projects, setprojects] = useState([]);
 
   const fetchData = async () => {
     try {
-      const { data } = await axios.get("/api/v1/project");
+      const { data } = await axios.get(`${BASE_URL}/api/v1/project`);
       if (data.success) {
         setprojects(data.data);
       }
