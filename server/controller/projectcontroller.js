@@ -12,16 +12,20 @@ export const ourproject = async (req, res) => {
         message: "Required all field",
       });
     }
+    const imageUrl = req.file.path; // Cloudinary gives a public URL
     const newproject = await project.create({
       title,
       description,
       language,
       link,
-      preview,
+      preview: imageUrl,
     });
-    res.status(201).send({
-      message: "Project addedd successfully",
+    await project.save();
+
+    return res.status(200).json({
       success: true,
+      message: "Project uploaded successfully",
+      data: project,
     });
   } catch (error) {
     res.status(500).send({

@@ -16,25 +16,33 @@ const AdminDashboard = ({ darkMode }) => {
   const [datacount, setdatacount] = useState(0);
   const [projectcount, setprojectcount] = useState(0);
 
-  const fetchuser = useCallback(async (req, res) => {
-    try {
-      const contactres = await axios.get(`${BASE_URL}/api/v1/contact`);
-      const projectres = await axios.get(`${BASE_URL}/api/v1/project`);
-      fetchuser();
-      if (contactres.data.success) {
-        setusercontact(contactres.data.data);
-        setdatacount(contactres.data.count);
+  const fetchuser = useCallback(
+    async (req, res) => {
+      try {
+        const contactres = await axios.get(`${BASE_URL}/api/v1/contact`);
+        const projectres = await axios.get(`${BASE_URL}/api/v1/project`);
+
+        if (contactres.data.success) {
+          setusercontact(contactres.data.data);
+          setdatacount(contactres.data.count);
+        }
+        if (projectres.data.success) {
+          setprojectcount(projectres.data.count);
+        }
+      } catch (error) {
+        console.log("Error fetching data:", error);
       }
-      if (projectres.data.success) {
-        setprojectcount(projectres.data.count);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+    },
+    [BASE_URL]
+  );
 
   useEffect(() => {
     fetchuser();
+    const interval = setInterval(() => {
+      fetchuser(); // Auto-fetch every 30 seconds
+    }, 30000);
+
+    return () => clearInterval(interval); // Clean up on unmount
   }, [fetchuser]);
 
   return (

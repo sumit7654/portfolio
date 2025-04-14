@@ -5,7 +5,7 @@ import axios from "axios";
 // import { HashLink } from "react-router-hash-link";
 
 const ProjectSection = () => {
-    const BASE_URL = process.env.REACT_APP_API_URL;
+  const BASE_URL = process.env.REACT_APP_API_URL;
 
   const [projects, setprojects] = useState([]);
 

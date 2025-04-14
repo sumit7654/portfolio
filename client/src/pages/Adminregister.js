@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Adminregister = ({ darkMode }) => {
   const navigate = useNavigate();
-  const BASE_URL = process.env.REACT_APP_API_URL;
+
   //states
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
@@ -18,6 +18,8 @@ const Adminregister = ({ darkMode }) => {
       if (!name || !email || !number || !role || !password) {
         return toast.warning("Required all field!");
       }
+      const BASE_URL = process.env.REACT_APP_API_URL;
+      // console.log("BASE_URL is:", BASE_URL);
 
       const { data } = await axios.post(`${BASE_URL}/api/v1/admin-register`, {
         name,

@@ -24,6 +24,7 @@ const Adminlogin = () => {
         email,
         password,
       });
+
       if (data.success) {
         toast.success("Login successfully ");
         setpassword("");

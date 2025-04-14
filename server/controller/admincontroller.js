@@ -21,30 +21,25 @@ export const adminuser = async (req, res) => {
         role,
         password,
       });
-      const token = jwt.sign({ userId: finduser._id }, process.env.JWT_SECRET, {
-        expiresIn: "7d",
-      });
-      return res.status(201).send(
-        {
-          message: "Admin registered successfully",
 
-          success: true,
-          token: token,
-        },
-        token
-      );
+      return res.status(201).send({
+        message: "Admin registered successfully",
+
+        success: true,
+        token: token,
+      });
     } else {
-      return res.status(500).send({
+      return res.status(400).send({
         message: "User already exist",
         success: false,
       });
     }
   } catch (error) {
-    return res.status(500).send({
-      message: "Something went wrong",
-      success: false,
-    });
     console.log(error);
+    // return res.status(500).send({
+    //   message: "Something went wrong",
+    //   success: false,
+    // });
   }
 };
 
