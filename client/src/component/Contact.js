@@ -136,7 +136,7 @@ const Contact = ({ darkMode }) => {
             </button>
           </div>
         </motion.form>
-        <ToastContainer />
+        
       </div>
     </section>
   );
