@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 import React, { useEffect, useState, useCallback } from "react";
 // import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Card, Nav } from "react-bootstrap";
@@ -57,23 +58,23 @@ const AdminDashboard = ({ darkMode }) => {
           Admin Panel
         </h3>
         <Nav className="flex-column gap-2">
-          <Nav.Link className="text-white" href="#">
+          <Nav.Link className="text-white" as={Link} to="#">
             <FaChartBar className="me-2" />
             Dashboard
           </Nav.Link>
-          <Nav.Link className="text-white" href="#">
+          <Nav.Link className="text-white" as={Link} to="#">
             <FaUsers className="me-2" />
             Users
           </Nav.Link>
-          <Nav.Link className="text-white" href="project">
+          <Nav.Link className="text-white" as={Link} to="/project">
             <FaProjectDiagram className="me-2" />
             Projects
           </Nav.Link>
-          <Nav.Link className="text-white" href="#">
+          <Nav.Link className="text-white" as={Link} to="/admin-register">
             <FaCogs className="me-2" />
-            Settings
+            Register
           </Nav.Link>
-          <Nav.Link className="text-white mt-4" href="#">
+          <Nav.Link className="text-white mt-4" as={Link} to="#">
             <FaSignOutAlt className="me-2" />
             Logout
           </Nav.Link>
