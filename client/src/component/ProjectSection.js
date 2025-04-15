@@ -28,7 +28,7 @@ const ProjectSection = () => {
     <div className="container my-5" id="project">
       <h2 className="text-center mb-4 fw-bold">My Projects</h2>
       {projects.length === 0 ? (
-        <p className="text-center">No projects to display.</p>
+        <p className="text-center">Wait while loading...</p>
       ) : (
         <Row>
           {projects.map((proj, idx) => (
