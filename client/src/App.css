@@ -45,3 +45,29 @@ html {
     background-color: #ffffff;
     color: #121212;
 }
+
+/* Toast Styling */
+.Toastify__toast {
+    z-index: 9999 !important;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.Toastify__toast--success {
+    background: #28a745;
+    color: white;
+}
+
+.Toastify__toast--error {
+    background: #dc3545;
+    color: white;
+}
+
+.Toastify__toast--warning {
+    background: #ffc107;
+    color: black;
+}
+
+.Toastify__progress-bar {
+    background: #fff;
+}
