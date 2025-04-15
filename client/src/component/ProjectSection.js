@@ -36,7 +36,7 @@ const ProjectSection = () => {
               <Card className="shadow-sm h-100">
                 <Card.Img
                   variant="top"
-                  src={`/uploads/${proj.preview}`}
+                  src={proj.preview}
                   style={{ height: "200px", objectFit: "cover" }}
                 />
                 <Card.Body>

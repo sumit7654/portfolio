@@ -12,12 +12,13 @@ import connectdb from "./config/db.js";
 
 const app = express();
 app.use(express.json());
-app.use(
-  cors({
-    origin: "https://portfolio-frontend-4fk2.onrender.com", // Or better: [your frontend URL]
-    credentials: true,
-  })
-);
+const corsOptions = {
+  origin: "https://portfolio-frontend-4fk2.onrender.com", // Adjust the frontend URL here
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+app.use(cors(corsOptions));
+
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 app.use(express.urlencoded({ extended: true })); // parses form data
 

@@ -13,6 +13,8 @@ const Contact = ({ darkMode }) => {
   const [number, setnumber] = useState("");
 
   const handleSubmit = async (e) => {
+    const BASE_URL = process.env.REACT_APP_API_URL;
+
     e.preventDefault();
     try {
       if (!name || !email || !query || !number) {
@@ -21,7 +23,7 @@ const Contact = ({ darkMode }) => {
 
       setLoading(true);
 
-      const { data } = await axios.post("/api/v1/contact", {
+      const { data } = await axios.post(`${BASE_URL}/api/v1/contact`, {
         name,
         email,
         number,
