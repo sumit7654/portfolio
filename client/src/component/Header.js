@@ -31,7 +31,7 @@ const Header = ({ toggleDarkMode, darkMode }) => {
         <Navbar.Toggle aria-controls="portfolio-navbar" />
         <Navbar.Collapse id="portfolio-navbar">
           <Nav className="ms-auto">
-            <Nav.Link href="/" className="me-3 fw-medium">
+            <Nav.Link as={Link} to="/" className="me-3 fw-medium">
               Home
             </Nav.Link>
             <Nav.Link
